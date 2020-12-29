@@ -34,3 +34,15 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Add Secure Code Warrior contextual training to SARIF
+        # You may pin to the exact commit or the version.
+        # uses: SecureCodeWarrior/github-action-add-sarif-contextual-training@944233043877d9b1efd95ce296623db960e45970
+        uses: SecureCodeWarrior/github-action-add-sarif-contextual-training@v1.0.6
+        with:
+          # Relative location of SARIF file(s) to process
+          inputSarifFile: ./findings.sarif
+          # Relative destination location for processed SARIF file(s)
+          outputSarifFile: ./findings.processed.sarif
+          # Provide `secrets.GITHUB_TOKEN` to use the GitHub access token automatically supplied by GitHub Workflows
+          #githubToken: # optional
